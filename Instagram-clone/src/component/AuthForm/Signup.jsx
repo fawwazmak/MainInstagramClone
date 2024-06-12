@@ -7,12 +7,13 @@ import {
   AlertIcon,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { BiShow, BiHide } from "react-icons/bi"; // Importing icons from react-icons
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword";
 
 const Signup = () => {
   const [inputs, setInputs] = useState({
     fullName: "",
-    userName: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -33,8 +34,8 @@ const Signup = () => {
         fontSize={14}
         type="text"
         size={"sm"}
-        value={inputs.userName}
-        onChange={(e) => setInputs({ ...inputs, userName: e.target.value })}
+        value={inputs.username}
+        onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
       />
       <Input
         placeholder="Fullname"
@@ -62,7 +63,7 @@ const Signup = () => {
               setShowPassword(!showPassword);
             }}
           >
-            {/* {showPassword ? <ViewIcon /> : <ViewOffIcon /> } */}
+            {showPassword ? <BiHide /> : <BiShow />}
           </Button>
         </InputRightElement>
       </InputGroup>
@@ -79,7 +80,7 @@ const Signup = () => {
         size={"sm"}
         fontSize={14}
         isLoading={loading}
-        onClick={() => signup(inputs)}
+        onClick={() => {signup(inputs)}}
       >
         Sign Up
       </Button>
@@ -88,3 +89,4 @@ const Signup = () => {
 };
 
 export default Signup;
+ 
